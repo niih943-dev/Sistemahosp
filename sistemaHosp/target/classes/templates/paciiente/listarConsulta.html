@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+	<title>Hospital</title>
+	 <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="inicio" class="brand-logo">Hospital</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/cadastrarConsulta">Cadastrar Consulta</a></li>
+        <li><a href="/consultas">Listar Consulta</a></li>
+        
+      </ul>
+    </div>
+  </nav>
+
+	<h1>Lista de Consulta</h1>
+	<h3><a href="/cadastrarConsulta" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Consulta</a></h3>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Especialista</th>
+				<th>Sintomas</th>
+				<th>Data da Consulta</th>
+				<th>Horario</th>
+				
+	
+			</tr>
+		</thead>
+		<tbody>
+	 		<tr th:each="consulta :${consultas}">
+	 			<td><span th:text="${consulta.especialista}"></span></td>
+				<td><span th:text="${consulta.sintomas}"></span></td>
+				<td><span th:text="${consulta.dtConsulta}"></span></td>
+				<td><span th:text="${consulta.horario}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>
